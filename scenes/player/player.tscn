@@ -9,6 +9,8 @@
 [ext_resource type="Script" uid="uid://pysxyw8d7xws" path="res://scripts/player/tilt_state.gd" id="6_0owmy"]
 [ext_resource type="Script" uid="uid://bm5j7r5y1fxld" path="res://scenes/player/tilt_state.gd" id="6_75vfm"]
 [ext_resource type="Script" uid="uid://5txax1mxg30t" path="res://scenes/player/watering_state.gd" id="9_5gtgg"]
+[ext_resource type="PackedScene" uid="uid://byefk2cqu5fa2" path="res://scenes/components/hit_box.tscn" id="10_h17s1"]
+[ext_resource type="Script" uid="uid://ca4chxxah125w" path="res://scripts/components/hit_box.gd" id="11_je7p5"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
 atlas = ExtResource("1_75vfm")
@@ -396,17 +398,24 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
 radius = 3.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_h17s1"]
+radius = 2.0
+
 [node name="Player" type="CharacterBody2D" unique_id=262879277]
 collision_layer = 2
+collision_mask = 17
 script = ExtResource("1_0owmy")
-tool = 3
+tool = 1
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=403135232]
+position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_u8vuu")
-animation = &"watering_right"
+animation = &"chopping_right"
+frame = 1
+frame_progress = 1.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251952890]
-position = Vector2(0, 5)
+position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_g2els")
 
 [node name="StateMachine" type="Node" parent="." unique_id=723935528 node_paths=PackedStringArray("init_state")]
@@ -431,3 +440,26 @@ script = ExtResource("6_75vfm")
 
 [node name="WateringState" type="Node" parent="StateMachine" unique_id=850680060]
 script = ExtResource("9_5gtgg")
+
+[node name="HitBox" parent="." unique_id=680053540 instance=ExtResource("10_h17s1")]
+script = ExtResource("11_je7p5")
+damage = 1
+
+[node name="CollisionShape2D" parent="HitBox" index="0" unique_id=1845021618]
+shape = SubResource("CircleShape2D_h17s1")
+disabled = true
+debug_color = Color(0.9900214, 0, 0.28904504, 0.41960785)
+
+[node name="UP" type="Marker2D" parent="HitBox" unique_id=1451941866]
+position = Vector2(3, -20)
+
+[node name="DOWN" type="Marker2D" parent="HitBox" unique_id=738253013]
+position = Vector2(-4, 3)
+
+[node name="LEFT" type="Marker2D" parent="HitBox" unique_id=966713227]
+position = Vector2(-10, -1)
+
+[node name="RIGHT" type="Marker2D" parent="HitBox" unique_id=759789477]
+position = Vector2(10, 0)
+
+[editable path="HitBox"]

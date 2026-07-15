@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://df73pc6x4q4mt"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ha8un"]
-size = Vector2(20, 50.875)
+size = Vector2(16.75, 50.875)
 
 [node name="InteractableComponent" type="Area2D" unique_id=1129333585]
 

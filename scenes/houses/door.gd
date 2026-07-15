@@ -9,7 +9,6 @@ func _ready() -> void:
 	interactable_component.body_exited.connect(_on_exited)
 	animated_sprite_2d.animation_finished.connect(_set_door_collision_disabled)
 func _on_entered(_area) -> void:
-	print(_area)
 	animated_sprite_2d.play("open")
 
 func _on_exited(_area) -> void:

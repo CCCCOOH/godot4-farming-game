@@ -68,6 +68,9 @@ hit={
 
 2d_physics/layer_1="Gound"
 2d_physics/layer_2="Player"
+2d_physics/layer_3="HitBox"
+2d_physics/layer_4="HurtBox"
+2d_physics/layer_5="Collect"
 
 [physics]
 

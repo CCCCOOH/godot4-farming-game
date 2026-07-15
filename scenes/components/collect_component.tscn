@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://dj5gu5lt8rfk4"]
+
+[ext_resource type="Script" uid="uid://w51h0y30g4ou" path="res://scripts/components/collect_component.gd" id="1_4j7e5"]
+
+[node name="CollectComponent" type="Area2D" unique_id=1646098026]
+collision_layer = 16
+collision_mask = 2
+script = ExtResource("1_4j7e5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1820757206]

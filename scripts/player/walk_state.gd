@@ -2,6 +2,7 @@ extends State
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
 @export var SPEED:int
 @export var player:Player
+@onready var hit_box: Area2D = $"../../HitBox"
 
 enum MoveToward {
 	left,

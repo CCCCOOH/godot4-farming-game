@@ -1,0 +1,75 @@
+[gd_scene format=3 uid="uid://dyrg7alk8iag6"]
+
+[ext_resource type="Texture2D" uid="uid://b50mnbs2k2473" path="res://assets/Objects/Basic_Grass_Biom_things.png" id="1_8aux3"]
+[ext_resource type="Script" uid="uid://chfxq8r1862n2" path="res://scripts/components/Log.gd" id="2_0hg5a"]
+[ext_resource type="PackedScene" uid="uid://dj5gu5lt8rfk4" path="res://scenes/components/collect_component.tscn" id="2_rflsv"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rflsv"]
+
+[sub_resource type="Animation" id="Animation_s2d64"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_0hg5a"]
+resource_name = "die"
+length = 0.39999999999999997
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 0.153893),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1.2), Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_s2d64"]
+_data = {
+&"RESET": SubResource("Animation_s2d64"),
+&"die": SubResource("Animation_0hg5a")
+}
+
+[node name="Log" type="Sprite2D" unique_id=1781645432]
+texture = ExtResource("1_8aux3")
+region_enabled = true
+region_rect = Rect2(80, 35, 16, 9)
+script = ExtResource("2_0hg5a")
+
+[node name="CollectComponent" parent="." unique_id=1646098026 instance=ExtResource("2_rflsv")]
+
+[node name="CollisionShape2D" parent="CollectComponent" index="0" unique_id=1820757206]
+shape = SubResource("CircleShape2D_rflsv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1809996196]
+libraries/ = SubResource("AnimationLibrary_s2d64")
+
+[editable path="CollectComponent"]

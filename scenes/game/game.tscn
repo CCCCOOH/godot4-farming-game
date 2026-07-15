@@ -7,6 +7,8 @@
 [ext_resource type="Script" uid="uid://7kd3to80rmrt" path="res://scenes/game/camera.gd" id="3_lnu2h"]
 [ext_resource type="PackedScene" uid="uid://bmsrb6uvbemw5" path="res://scenes/houses/large_house.tscn" id="4_87uf6"]
 [ext_resource type="PackedScene" uid="uid://b41jtsl743myo" path="res://scenes/houses/small_house.tscn" id="5_87uf6"]
+[ext_resource type="PackedScene" uid="uid://bh4n6a8su1vl4" path="res://scenes/components/small_tree.tscn" id="8_87uf6"]
+[ext_resource type="PackedScene" uid="uid://cqlnsxuc0ernb" path="res://scenes/components/big_tree.tscn" id="9_2a8rs"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yxgbh"]
 texture = ExtResource("2_5i0tg")
@@ -117,6 +119,7 @@ sources/1 = SubResource("TileSetAtlasSource_c4aqv")
 sources/2 = SubResource("TileSetScenesCollectionSource_yxgbh")
 
 [node name="Game" type="Node2D" unique_id=2094438097]
+y_sort_enabled = true
 
 [node name="GameTileMap" type="Node2D" parent="." unique_id=1634448772]
 
@@ -146,3 +149,9 @@ script = ExtResource("3_lnu2h")
 
 [node name="Player" parent="." unique_id=262879277 instance=ExtResource("2_yqjtg")]
 position = Vector2(288, 515)
+
+[node name="SmallTree" parent="." unique_id=1337842554 instance=ExtResource("8_87uf6")]
+position = Vector2(317, 497)
+
+[node name="BigTree" parent="." unique_id=517689747 instance=ExtResource("9_2a8rs")]
+position = Vector2(364, 481)

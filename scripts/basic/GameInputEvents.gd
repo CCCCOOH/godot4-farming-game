@@ -17,5 +17,6 @@ static func is_movement() -> bool:
 		return true
 	else:
 		return false
+
 static func is_hit() -> bool:
 	return Input.is_action_just_pressed("hit")
