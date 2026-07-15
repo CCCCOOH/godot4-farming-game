@@ -394,9 +394,10 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_g2els"]
-radius = 8.0
+radius = 3.0
 
 [node name="Player" type="CharacterBody2D" unique_id=262879277]
+collision_layer = 2
 script = ExtResource("1_0owmy")
 tool = 3
 
@@ -405,6 +406,7 @@ sprite_frames = SubResource("SpriteFrames_u8vuu")
 animation = &"watering_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=251952890]
+position = Vector2(0, 5)
 shape = SubResource("CircleShape2D_g2els")
 
 [node name="StateMachine" type="Node" parent="." unique_id=723935528 node_paths=PackedStringArray("init_state")]
