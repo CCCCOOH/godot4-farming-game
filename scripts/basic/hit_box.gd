@@ -1,6 +1,8 @@
 class_name HitBox extends Area2D
 
 var current_tool: DataType.Tools
+
+@warning_ignore("unused_signal")
 signal hit(_damage: int)
 @export var damage: int
 

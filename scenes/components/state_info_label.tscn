@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cpeonir278ik"]
+
+[ext_resource type="Script" uid="uid://c0svbtwtg1tkb" path="res://scenes/components/state_info_label.gd" id="1_8te5j"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_8te5j"]
+font_size = 12
+
+[node name="StateInfoLabel" type="Label" unique_id=441221696]
+offset_right = 94.0
+offset_bottom = 23.0
+text = "PlaceHolder"
+label_settings = SubResource("LabelSettings_8te5j")
+script = ExtResource("1_8te5j")

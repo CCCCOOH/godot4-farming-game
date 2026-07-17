@@ -7,8 +7,7 @@ extends HitBox
 @onready var left: Marker2D = $LEFT
 @onready var right: Marker2D = $RIGHT
 
-func _physics_process(delta: float) -> void:
-	var len: int = 0
+func _physics_process(_delta: float) -> void:
 	match player.last_direction:
 		Vector2.UP:
 			position = up.position

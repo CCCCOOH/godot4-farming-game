@@ -11,6 +11,7 @@
 [ext_resource type="Script" uid="uid://5txax1mxg30t" path="res://scenes/player/watering_state.gd" id="9_5gtgg"]
 [ext_resource type="PackedScene" uid="uid://byefk2cqu5fa2" path="res://scenes/components/hit_box.tscn" id="10_h17s1"]
 [ext_resource type="Script" uid="uid://ca4chxxah125w" path="res://scripts/components/hit_box.gd" id="11_je7p5"]
+[ext_resource type="PackedScene" uid="uid://cpeonir278ik" path="res://scenes/components/state_info_label.tscn" id="12_fm80t"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4r5pv"]
 atlas = ExtResource("1_75vfm")
@@ -462,5 +463,12 @@ position = Vector2(-10, -1)
 
 [node name="RIGHT" type="Marker2D" parent="HitBox" unique_id=759789477]
 position = Vector2(10, 0)
+
+[node name="StateInfoLabel" parent="." unique_id=441221696 node_paths=PackedStringArray("state_machine") instance=ExtResource("12_fm80t")]
+offset_left = -34.0
+offset_top = -39.0
+offset_right = 36.0
+offset_bottom = -22.0
+state_machine = NodePath("../StateMachine")
 
 [editable path="HitBox"]

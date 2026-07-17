@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://b53hmh0f1jqqg"]
+
+[ext_resource type="PackedScene" uid="uid://6jok3q1isj4i" path="res://scenes/NPC/basic_npc/npc.tscn" id="1_ssm3u"]
+[ext_resource type="Texture2D" uid="uid://do5fxbxj3vrgf" path="res://assets/Characters/Free Cow Sprites.png" id="2_dnhu5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dnhu5"]
+atlas = ExtResource("2_dnhu5")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4318b"]
+atlas = ExtResource("2_dnhu5")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_m8ken"]
+atlas = ExtResource("2_dnhu5")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iin21"]
+atlas = ExtResource("2_dnhu5")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2nmcr"]
+atlas = ExtResource("2_dnhu5")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dnhu5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dnhu5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4318b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_m8ken")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iin21")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2nmcr")
+}],
+"loop": 1,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m8ken"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iin21"]
+radius = 14.0
+
+[node name="Cow" unique_id=1650866084 instance=ExtResource("1_ssm3u")]
+SPEED = 10.0
+
+[node name="AnimatedSprite2D" parent="." index="0" unique_id=431256873]
+sprite_frames = SubResource("SpriteFrames_dnhu5")
+animation = &"idle"
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=288034473]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_m8ken")
+
+[node name="NavigationAgent2D" parent="." index="2" unique_id=18402307]
+navigation_layers = 2
+avoidance_layers = 4
+avoidance_mask = 4
+
+[node name="IdleState" parent="StateMachine" parent_id_path=PackedInt32Array(59851398) index="0" unique_id=190185140]
+MAX_IDLE_DURATION = 5.0
+
+[node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(781620992) index="0" unique_id=279651017]
+position = Vector2(0, 3)
+shape = SubResource("CircleShape2D_iin21")

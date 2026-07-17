@@ -1,8 +1,9 @@
-extends State
+class_name NPCWalkState extends State
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $"../../AnimatedSprite2D"
 @onready var navigation_agent_2d: NavigationAgent2D = $"../../NavigationAgent2D"
-@onready var chicken: Chicken = $"../.."
 @onready var area_2d: Area2D = $"../../Area2D"
+@onready var npc:NPC = $"../.."
 
 func _ready() -> void:
 	navigation_agent_2d.navigation_finished.connect(_on_nav_finished)
@@ -17,27 +18,27 @@ func enter() -> void:
 
 func physics_process(_delta: float) -> void:
 	var target_position = navigation_agent_2d.get_next_path_position()
-	var direction = chicken.global_position.direction_to(target_position).normalized()
-	var velocity: Vector2 = direction * chicken.SPEED
+	var direction = npc.global_position.direction_to(target_position).normalized()
+	var velocity: Vector2 = direction * npc.SPEED
 	animated_sprite_2d.flip_h = direction.x < 0
 	if navigation_agent_2d.avoidance_enabled:
 		navigation_agent_2d.velocity = velocity
 	else:
-		chicken.velocity = velocity
-		chicken.move_and_slide()
+		npc.velocity = velocity
+		npc.move_and_slide()
 
 func exit() -> void:
 	navigation_agent_2d.avoidance_enabled = false
-	chicken.velocity = Vector2.ZERO
-	chicken.move_and_slide()
+	npc.velocity = Vector2.ZERO
+	npc.move_and_slide()
 
 func _on_nav_finished() -> void:
-	transition_state.emit("Idle")
+	transition_state.emit("IdleState")
 
 func _on_velocity_computed(safe_velocity: Vector2):
-	chicken.velocity = safe_velocity
-	chicken.move_and_slide()
+	npc.velocity = safe_velocity
+	npc.move_and_slide()
 
 func _on_body_entered(body) -> void:
 	if body is Player:
-		transition_state.emit("Idle")
+		transition_state.emit("IdleState")
