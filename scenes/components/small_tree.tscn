@@ -2,10 +2,11 @@
 
 [ext_resource type="Texture2D" uid="uid://b50mnbs2k2473" path="res://assets/Objects/Basic_Grass_Biom_things.png" id="1_5cxno"]
 [ext_resource type="Script" uid="uid://b5427e3l6nwp4" path="res://scenes/components/tree.gd" id="1_10xnx"]
-[ext_resource type="Shader" uid="uid://djjcrbsbbg272" path="res://shaders/tree_shake.gdshader" id="2_0bwal"]
+[ext_resource type="Shader" uid="uid://djjcrbsbbg272" path="res://shaders/shake.gdshader" id="2_0bwal"]
 [ext_resource type="PackedScene" uid="uid://brpm1b2npcw53" path="res://scenes/components/hurt_box.tscn" id="2_exdyc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_0bwal"]
+resource_local_to_scene = true
 shader = ExtResource("2_0bwal")
 shader_parameter/intensity = 0.0
 shader_parameter/shake = 10.0

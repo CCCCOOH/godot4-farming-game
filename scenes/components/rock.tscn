@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://cglrbwyjty3ch"]
+
+[ext_resource type="Shader" uid="uid://djjcrbsbbg272" path="res://shaders/shake.gdshader" id="1_lalix"]
+[ext_resource type="PackedScene" uid="uid://brpm1b2npcw53" path="res://scenes/components/hurt_box.tscn" id="1_r4vve"]
+[ext_resource type="Texture2D" uid="uid://b50mnbs2k2473" path="res://assets/Objects/Basic_Grass_Biom_things.png" id="1_wkfrb"]
+[ext_resource type="Script" uid="uid://dprcdlofkyypx" path="res://scenes/components/rock.gd" id="2_er0bu"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_er0bu"]
+shader = ExtResource("1_lalix")
+shader_parameter/intensity = 0.0
+shader_parameter/shake = 10.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lalix"]
+shader = ExtResource("1_lalix")
+shader_parameter/intensity = 0.0
+shader_parameter/shake = 10.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_er0bu"]
+atlas = ExtResource("1_wkfrb")
+region = Rect2(128, 17, 16, 13)
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lalix"]
+radius = 3.0
+height = 14.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_er0bu"]
+radius = 6.0
+
+[node name="Rock" type="StaticBody2D" unique_id=327641791 node_paths=PackedStringArray("sprite_2d")]
+material = SubResource("ShaderMaterial_er0bu")
+script = ExtResource("2_er0bu")
+sprite_2d = NodePath("Sprite2D")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1973793625]
+y_sort_enabled = true
+material = SubResource("ShaderMaterial_lalix")
+texture = SubResource("AtlasTexture_er0bu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1470960412]
+position = Vector2(0, 2)
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_lalix")
+
+[node name="HurtBox" parent="." unique_id=270299363 instance=ExtResource("1_r4vve")]
+hurt_tool = 1
+health = 5
+
+[node name="CollisionShape2D" parent="HurtBox" index="0" unique_id=771546221]
+shape = SubResource("CircleShape2D_er0bu")
+
+[editable path="HurtBox"]
