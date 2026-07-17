@@ -7,3 +7,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	position = player.position
+
+
+func _on_timer_timeout() -> void:
+	pass # Replace with function body.

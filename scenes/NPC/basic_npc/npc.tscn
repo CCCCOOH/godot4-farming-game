@@ -10,19 +10,23 @@
 [sub_resource type="SpriteFrames" id="SpriteFrames_8xhcb"]
 
 [node name="NPC" type="CharacterBody2D" unique_id=1650866084]
+collision_layer = 32
 script = ExtResource("1_8xhcb")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=431256873]
+y_sort_enabled = true
 sprite_frames = SubResource("SpriteFrames_8xhcb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=288034473]
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=18402307]
+path_desired_distance = 5.0
+navigation_layers = 0
+path_postprocessing = 1
 avoidance_enabled = true
 radius = 5.0
-avoidance_layers = 0
-avoidance_mask = 0
-debug_enabled = true
+avoidance_layers = 8
+avoidance_mask = 8
 
 [node name="StateMachine" parent="." unique_id=59851398 node_paths=PackedStringArray("init_state") instance=ExtResource("2_a2faw")]
 script = ExtResource("3_c0qjk")

@@ -52,6 +52,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_m8ken"]
+radius = 6.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iin21"]
 radius = 14.0
@@ -60,14 +61,16 @@ radius = 14.0
 SPEED = 10.0
 
 [node name="AnimatedSprite2D" parent="." index="0" unique_id=431256873]
+position = Vector2(0, -13)
 sprite_frames = SubResource("SpriteFrames_dnhu5")
 animation = &"idle"
 
 [node name="CollisionShape2D" parent="." index="1" unique_id=288034473]
-position = Vector2(0, 3)
+position = Vector2(-1, -6)
 shape = SubResource("CircleShape2D_m8ken")
 
 [node name="NavigationAgent2D" parent="." index="2" unique_id=18402307]
+path_desired_distance = 5.0
 navigation_layers = 2
 avoidance_layers = 4
 avoidance_mask = 4
@@ -76,5 +79,5 @@ avoidance_mask = 4
 MAX_IDLE_DURATION = 5.0
 
 [node name="CollisionShape2D" parent="Area2D" parent_id_path=PackedInt32Array(781620992) index="0" unique_id=279651017]
-position = Vector2(0, 3)
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_iin21")

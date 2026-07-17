@@ -75,9 +75,7 @@ position = Vector2(-1, 0)
 shape = SubResource("CircleShape2D_6xslu")
 
 [node name="NavigationAgent2D" parent="." index="2" unique_id=18402307]
-navigation_layers = 3
-avoidance_layers = 5
-avoidance_mask = 5
+navigation_layers = 1
 
 [node name="IdleState" parent="StateMachine" parent_id_path=PackedInt32Array(59851398) index="0" unique_id=190185140]
 MAX_IDLE_DURATION = 8.0

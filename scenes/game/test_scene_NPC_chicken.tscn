@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b41jtsl743myo" path="res://scenes/houses/small_house.tscn" id="5_6ss80"]
 [ext_resource type="Script" uid="uid://7kd3to80rmrt" path="res://scenes/game/camera.gd" id="6_fpuad"]
 [ext_resource type="PackedScene" uid="uid://5yd3ckxy5uo0" path="res://scenes/player/player.tscn" id="7_ldkr3"]
-[ext_resource type="PackedScene" uid="uid://c8yrtpr67qpeq" path="res://scenes/NPC/chicken/chicken.tscn" id="8_r5q5u"]
+[ext_resource type="Script" uid="uid://by3lilxsvye2x" path="res://scenes/game/marker_2d.gd" id="8_r5q5u"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yxgbh"]
 texture = ExtResource("2_t7b7x")
@@ -158,14 +158,6 @@ position = Vector2(24, 73)
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="." unique_id=453212498]
 navigation_polygon = SubResource("NavigationPolygon_r5q5u")
 
-[node name="Chicken" parent="." unique_id=626457430 instance=ExtResource("8_r5q5u")]
-position = Vector2(141, 103)
-
-[node name="Chicken2" parent="." unique_id=1253101619 instance=ExtResource("8_r5q5u")]
-position = Vector2(218, 148)
-
-[node name="Chicken3" parent="." unique_id=1981085182 instance=ExtResource("8_r5q5u")]
-position = Vector2(143, 159)
-
-[node name="Chicken4" parent="." unique_id=2049893885 instance=ExtResource("8_r5q5u")]
-position = Vector2(173, 194)
+[node name="Marker2D" type="Marker2D" parent="." unique_id=2071672981]
+position = Vector2(156, 161)
+script = ExtResource("8_r5q5u")

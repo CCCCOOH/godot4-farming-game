@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://chi4eu8cjhlh"]
+
+[ext_resource type="Texture2D" uid="uid://denxltdvloa75" path="res://icon.svg" id="1_aowbr"]
+[ext_resource type="Script" uid="uid://bd3gmak0ltwjk" path="res://scenes/components/navigation_avoid_tester.gd" id="1_m3vej"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_m3vej"]
+radius = 6.0
+
+[node name="NavigationAvoidTester" type="CharacterBody2D" unique_id=1405947295]
+collision_layer = 0
+collision_mask = 35
+motion_mode = 1
+script = ExtResource("1_m3vej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=154307681]
+shape = SubResource("CircleShape2D_m3vej")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=260573418]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_aowbr")
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2129441477]
+path_desired_distance = 5.0
+navigation_layers = 4
+avoidance_enabled = true
+radius = 3.0
+debug_enabled = true

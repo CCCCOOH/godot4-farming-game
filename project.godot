@@ -32,6 +32,10 @@ folder_colors={
 "res://tilesets/": "yellow"
 }
 
+[global_group]
+
+navigation_polygon_source_geometry_group=""
+
 [input]
 
 up={
@@ -71,12 +75,14 @@ hit={
 2d_physics/layer_2="Player"
 2d_navigation/layer_2="CowLayer"
 2d_physics/layer_3="HitBox"
+2d_navigation/layer_3="NPC"
 2d_physics/layer_4="HurtBox"
 2d_physics/layer_5="Collect"
 2d_physics/layer_6="NPC"
 avoidance/layer_1="chicken avoid"
 avoidance/layer_2="player avoid"
 avoidance/layer_3="cow avoid"
+avoidance/layer_4="NPC"
 
 [physics]
 

@@ -1,6 +1,6 @@
 class_name StateInfoLabel extends Label
 @export var state_machine: StateMachine
-const disabled: bool = false
+const disabled: bool = true
 
 func _ready() -> void:
 	state_machine.state_changed.connect(_on_state_changed)
